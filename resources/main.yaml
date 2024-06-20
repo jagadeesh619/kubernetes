@@ -10,6 +10,9 @@ spec:
   containers:
   - name: demo-con
     image: nginx
+    env:
+    - name: "course"
+      value: "devops"
     ports:
     - containerPort: 80
     envFrom:
