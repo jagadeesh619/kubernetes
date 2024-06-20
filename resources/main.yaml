@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo-pod
+  namespace: roboshop
+labels:
+  course: "devops"
+  trainer: "siva"
+spec:
+  containers:
+  - name: demo-con
+    image: nginx
+    ports:
+    - containerPort: 80
+    envFrom:
+    - configMapRef:
+        name: demo-config
+    envFrom:
+    - secretRef:
+        name: demo-secret
+
+
+    
