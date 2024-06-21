@@ -1,0 +1,74 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "catalogue"
+  namespace: roboshop
+data:
+  MONGO: "true"
+
+------------------
+
+# apiVersion: v1
+# kind: Secret
+# metadata:
+#   name: "mysql"
+#   namespace: roboshop
+# type: Opaque
+# data:
+#   MYSQL_ROOT_PASSWORD: Um9ib1Nob3BAMQ==
+#   MYSQL_USER: c2hpcHBpbmc=
+#   MYSQL_PASSWORD: Um9ib1Nob3BAMQ==
+
+
+-------------------
+
+apiVersion: apps/v1
+kind : Deployment
+metadata:
+  name: catalogue
+  namespace: roboshop
+  labels:
+    project: "roboshop"
+    tier: "data"
+    app: "catalogue"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      project: "roboshop"
+      tier: "data"
+      app: "catalogue"
+    template:
+      metadata:
+        labels:
+          project: "roboshop"
+          tier: "data"
+          app: "catalogue"     
+      spec:
+        containers:
+        - name: catalogue
+          image: catalogue:v1
+          imagePullPolicy: Always
+          envFrom:
+          - configMapRef:
+              name: "catalogue"
+          # - secretRef:
+          #     name: "catalogue"
+
+------
+apiVersion: v1
+kind: Service
+metadata:
+  name: "catalogue"
+  namespace: roboshop
+spec:
+  selector:
+    project: "roboshop"
+    tier: "data"
+    app: "catalogue" 
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+ 
+
