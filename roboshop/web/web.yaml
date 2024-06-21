@@ -136,7 +136,7 @@ spec:
       spec:
         containers:
         - name: web
-          image: web:v1
+          image: jagadevops321/web:v1
           imagePullPolicy: Always
           volumeMounts:
           - name: nginx-conf

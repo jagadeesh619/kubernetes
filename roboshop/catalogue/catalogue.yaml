@@ -47,7 +47,7 @@ spec:
       spec:
         containers:
         - name: catalogue
-          image: catalogue:v1
+          image: jagadevops321/catalogue:v1
           imagePullPolicy: Always
           envFrom:
           - configMapRef:

@@ -47,7 +47,7 @@ spec:
       spec:
         containers:
         - name: mysql
-          image: mysql:v1
+          image: jagadevops321/mysql:v1
           imagePullPolicy: Always
           envFrom:
           - configMapRef:
