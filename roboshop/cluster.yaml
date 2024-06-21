@@ -3,7 +3,7 @@ kind: ClusterConfig
 metadata:
   name: "roboshop"
   region: us-east-1
-managedNodeGroup:
+managedNodeGroups:
   - name: spot
     instanceType: t2.medium
     desiredCapacity: 3
