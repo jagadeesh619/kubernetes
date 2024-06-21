@@ -27,7 +27,7 @@ spec:
           image: redis
           imagePullPolicy: Always
 
-------
+
 
 apiVersion: v1
 kind: service

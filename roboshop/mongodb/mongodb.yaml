@@ -3,7 +3,7 @@
 # metadata:
 #   name: "mongodb-config"
 # data:
-------------
+
 
 apiVersion: apps/v1
 kind : Deployment
@@ -32,7 +32,7 @@ spec:
         - name: mongodb
           image: jagadevops321/mongodb:v1
           imagePullPolicy: Always
-------
+
 apiVersion: v1
 kind: Service
 metadata:

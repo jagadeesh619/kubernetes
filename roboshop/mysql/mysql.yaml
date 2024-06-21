@@ -6,7 +6,7 @@ metadata:
 data:
   MYSQL_DATABASE: "cities"
 
-------------------
+
 
 apiVersion: v1
 kind: Secret
@@ -20,7 +20,7 @@ data:
   MYSQL_PASSWORD: Um9ib1Nob3BAMQ==
 
 
--------------------
+
 
 apiVersion: apps/v1
 kind : Deployment
@@ -55,7 +55,7 @@ spec:
           - secretRef:
               name: "mysql"
 
-------
+
 apiVersion: v1
 kind: Service
 metadata:
