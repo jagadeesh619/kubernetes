@@ -1,17 +1,17 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: "mysql"
+  name: mysql
   namespace: roboshop
 data:
   MYSQL_DATABASE: "cities"
 
-
+---
 
 apiVersion: v1
 kind: Secret
 metadata:
-  name: "mysql"
+  name: mysql
   namespace: roboshop
 type: Opaque
 data:
@@ -19,6 +19,7 @@ data:
   MYSQL_USER: c2hpcHBpbmc=
   MYSQL_PASSWORD: Um9ib1Nob3BAMQ==
 
+---
 
 
 
@@ -54,7 +55,7 @@ spec:
             name: "mysql"
         - secretRef:
             name: "mysql"
-
+---
 
 apiVersion: v1
 kind: Service
