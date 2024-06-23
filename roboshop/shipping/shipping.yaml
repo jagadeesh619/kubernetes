@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: shipping
-        image: shipping:v1
+        image: jagadevops321/shipping:v1
         imagePullPolicy: Always
         envFrom:
         - configMapRef:
