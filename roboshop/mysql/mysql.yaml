@@ -38,22 +38,22 @@ spec:
       project: "roboshop"
       tier: "data"
       app: "mysql"
-    template:
-      metadata:
-        labels:
-          project: "roboshop"
-          tier: "data"
-          app: "mysql"     
-      spec:
-        containers:
-        - name: mysql
-          image: jagadevops321/mysql:v1
-          imagePullPolicy: Always
-          envFrom:
-          - configMapRef:
-              name: "mysql"
-          - secretRef:
-              name: "mysql"
+  template:
+    metadata:
+      labels:
+        project: "roboshop"
+        tier: "data"
+        app: "mysql"     
+    spec:
+      containers:
+      - name: mysql
+        image: jagadevops321/mysql:v1
+        imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: "mysql"
+        - secretRef:
+            name: "mysql"
 
 
 apiVersion: v1
