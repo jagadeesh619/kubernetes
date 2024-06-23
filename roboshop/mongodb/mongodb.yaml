@@ -18,8 +18,8 @@ spec:
       metadata:
         labels:
           project: roboshop
-          tier: "data"
-          app: "mongodb"     
+          tier: data
+          app: mongodb     
       spec:
         containers:
         - name: mongodb
