@@ -28,7 +28,7 @@ spec:
           imagePullPolicy: Always
 
 
-
+---
 apiVersion: v1
 kind: service
 metadata:
