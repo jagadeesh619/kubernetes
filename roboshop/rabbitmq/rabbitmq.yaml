@@ -7,7 +7,7 @@ type: Opaque
 data:
   RABBITMQ_DEFAULT_USER: cm9ib3Nob3A=
   RABBITMQ_DEFAULT_PASS: cm9ib3Nob3AxMjM=
-
+---
 apiVersion: apps/v1
 kind : Deployment
 metadata:
@@ -24,22 +24,22 @@ spec:
       project: "roboshop"
       tier: "data"
       app: "rabbitmq"
-    template:
-      metadata:
-        labels:
-          project: "roboshop"
-          tier: "data"
-          app: "rabbitmq"     
-      spec:
-        containers:
-        - name: rabbitmq
-          image: rabbitmq
-          imagePullPolicy: Always
-          envFrom:
-          - secretRef:
-              name: rabbitmq
+  template:
+    metadata:
+      labels:
+        project: "roboshop"
+        tier: "data"
+        app: "rabbitmq"     
+    spec:
+      containers:
+      - name: rabbitmq
+        image: rabbitmq
+        imagePullPolicy: Always
+        envFrom:
+        - secretRef:
+            name: rabbitmq
 
-
+---
 apiVersion: v1
 kind: Service
 metadata:

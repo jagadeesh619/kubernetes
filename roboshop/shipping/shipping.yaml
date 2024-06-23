@@ -6,7 +6,7 @@ metadata:
 data:
   CART_ENDPOINT: "cart:8080"
   DB_HOST: mysql
--------------------
+---
 
 apiVersion: apps/v1
 kind : Deployment
@@ -24,21 +24,21 @@ spec:
       project: "roboshop"
       tier: "data"
       app: "shipping"
-    template:
-      metadata:
-        labels:
-          project: "roboshop"
-          tier: "data"
-          app: "shipping"     
-      spec:
-        containers:
-        - name: shipping
-          image: shipping:v1
-          imagePullPolicy: Always
-          envFrom:
-          - configMapRef:
-              name: "shipping"
-------
+  template:
+    metadata:
+      labels:
+        project: "roboshop"
+        tier: "data"
+        app: "shipping"     
+    spec:
+      containers:
+      - name: shipping
+        image: shipping:v1
+        imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: "shipping"
+---
 apiVersion: v1
 kind: Service
 metadata:

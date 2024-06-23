@@ -7,7 +7,7 @@ data:
   AMQP_USER: cm9ib3Nob3A=
   AMQP_PASS: cm9ib3Nob3AxMjM=
 
-
+---
 apiVersion: apps/v1
 kind : Deployment
 metadata:
@@ -24,21 +24,21 @@ spec:
       project: "roboshop"
       tier: "data"
       app: "payment"
-    template:
-      metadata:
-        labels:
-          project: "roboshop"
-          tier: "data"
-          app: "payment"     
-      spec:
-        containers:
-        - name: payment
-          image: jagadevops321/payment:v1
-          imagePullPolicy: Always
-          envFrom:
-          - secretRef:
-              name: "payment"
-
+  template:
+    metadata:
+      labels:
+        project: "roboshop"
+        tier: "data"
+        app: "payment"     
+    spec:
+      containers:
+      - name: payment
+        image: jagadevops321/payment:v1
+        imagePullPolicy: Always
+        envFrom:
+        - secretRef:
+            name: "payment"
+---
 apiVersion: v1
 kind: Service
 metadata:

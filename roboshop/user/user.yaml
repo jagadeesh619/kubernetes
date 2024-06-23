@@ -6,7 +6,7 @@ metadata:
 data:
   MONGO: "true"
 
-
+---
 
 apiVersion: apps/v1
 kind : Deployment
@@ -24,21 +24,21 @@ spec:
       project: "roboshop"
       tier: "data"
       app: "user"
-    template:
-      metadata:
-        labels:
-          project: "roboshop"
-          tier: "data"
-          app: "user"     
-      spec:
-        containers:
-        - name: user
-          image: jagadevops321/user:v1
-          imagePullPolicy: Always
-          envFrom:
-          - configMapRef:
-              name: "user"
-
+  template:
+    metadata:
+      labels:
+        project: "roboshop"
+        tier: "data"
+        app: "user"     
+    spec:
+      containers:
+      - name: user
+        image: jagadevops321/user:v1
+        imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: "user"
+---
 apiVersion: v1
 kind: Service
 metadata:

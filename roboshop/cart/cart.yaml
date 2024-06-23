@@ -8,7 +8,7 @@ data:
   CATALOGUE_HOST: "catalogue"
   CATALOGUE_PORT: "8080"
 
-
+---
 apiVersion: apps/v1
 kind : Deployment
 metadata:
@@ -25,21 +25,21 @@ spec:
       project: "roboshop"
       tier: "data"
       app: "cart"
-    template:
-      metadata:
-        labels:
-          project: "roboshop"
-          tier: "data"
-          app: "cart"     
-      spec:
-        containers:
-        - name: cart
-          image: jagadevops321/cart:v1
-          imagePullPolicy: Always
-          envFrom:
-          - configMapRef:
-              name: "cart"
-
+  template:
+    metadata:
+      labels:
+        project: "roboshop"
+        tier: "data"
+        app: "cart"     
+    spec:
+      containers:
+      - name: cart
+        image: jagadevops321/cart:v1
+        imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: "cart"
+---
 apiVersion: v1
 kind: Service
 metadata:

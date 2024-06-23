@@ -7,7 +7,7 @@ data:
   MONGO: "true"
 
 
-
+---
 # apiVersion: v1
 # kind: Secret
 # metadata:
@@ -38,24 +38,24 @@ spec:
       project: "roboshop"
       tier: "data"
       app: "catalogue"
-    template:
-      metadata:
-        labels:
-          project: "roboshop"
-          tier: "data"
-          app: "catalogue"     
-      spec:
-        containers:
-        - name: catalogue
-          image: jagadevops321/catalogue:v1
-          imagePullPolicy: Always
-          envFrom:
-          - configMapRef:
-              name: "catalogue"
-          # - secretRef:
-          #     name: "catalogue"
+  template:
+    metadata:
+      labels:
+        project: "roboshop"
+        tier: "data"
+        app: "catalogue"     
+    spec:
+      containers:
+      - name: catalogue
+        image: jagadevops321/catalogue:v1
+        imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: "catalogue"
+        # - secretRef:
+        #     name: "catalogue"
 
-
+---
 apiVersion: v1
 kind: Service
 metadata:

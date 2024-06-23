@@ -109,7 +109,7 @@ data:
 
     } 
 
-
+---
 apiVersion: apps/v1
 kind : Deployment
 metadata:
@@ -126,31 +126,31 @@ spec:
       project: "roboshop"
       tier: "data"
       app: "web"
-    template:
-      metadata:
-        labels:
-          project: "roboshop"
-          tier: "data"
-          app: "web"     
-      spec:
-        containers:
-        - name: web
-          image: jagadevops321/web:v1
-          imagePullPolicy: Always
-          volumeMounts:
-          - name: nginx-conf
-            mountPath: /etc/nginx/nginx.conf
-            subPath: nginx.conf
-            readOnly: true
-        volumes:
+  template:
+    metadata:
+      labels:
+        project: "roboshop"
+        tier: "data"
+        app: "web"     
+    spec:
+      containers:
+      - name: web
+        image: jagadevops321/web:v1
+        imagePullPolicy: Always
+        volumeMounts:
         - name: nginx-conf
-          configMap:
-            name: web
-            items:
-              - key: nginx.conf
-                path: nginx.conf
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+          readOnly: true
+      volumes:
+      - name: nginx-conf
+        configMap:
+          name: web
+          items:
+            - key: nginx.conf
+              path: nginx.conf
 
-
+---
 apiVersion: v1
 kind: Service
 metadata:
