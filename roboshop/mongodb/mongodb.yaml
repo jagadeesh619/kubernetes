@@ -4,20 +4,20 @@ metadata:
   name: mongodb
   namespace: roboshop
   labels:
-    project: "roboshop"
-    tier: "data"
-    app: "mongodb"
+    project: roboshop
+    tier: data
+    app: mongodb
 spec:
   replicas: 3
   selector:
     matchLabels:
-      project: "roboshop"
-      tier: "data"
-      app: "mongodb"
+      project: roboshop
+      tier: data
+      app: mongodb
     template:
       metadata:
         labels:
-          project: "roboshop"
+          project: roboshop
           tier: "data"
           app: "mongodb"     
       spec:
@@ -29,13 +29,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: "mongodb"
+  name: mongodb
   namespace: roboshop
 spec:
   selector:
-    project: "roboshop"
-    tier: "data"
-    app: "mongodb" 
+    project: roboshop
+    tier: data
+    app:  mongodb
   ports:
   - protocol: TCP
     port: 27107
