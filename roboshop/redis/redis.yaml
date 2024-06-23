@@ -15,17 +15,17 @@ spec:
       project: "roboshop"
       tier: "data"
       app: "redis"
-    template:
-      metadata:
-        labels:
-          project: "roboshop"
-          tier: "data"
-          app: "redis"     
-      spec:
-        containers:
-        - name: redis
-          image: redis
-          imagePullPolicy: Always
+  template:
+    metadata:
+      labels:
+        project: "roboshop"
+        tier: "data"
+        app: "redis"     
+    spec:
+      containers:
+      - name: redis
+        image: redis
+        imagePullPolicy: Always
 
 
 ---
